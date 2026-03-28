@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERK LAB – Product Design</title>
+  <meta name="description" content="Product design se zaměřením na IT produkty. Od požadavků k funkčnímu prototypu.">
+  <link rel="icon" type="image/png" sizes="64x64" href="logo/FAVICON – 64px.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo/FAVICON – 32px.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logo/FAVICON – 16px.png">
+  <meta property="og:title" content="VERK LAB – Product Design">
+  <meta property="og:description" content="Product design se zaměřením na IT produkty. Od požadavků k funkčnímu prototypu.">
+  <meta property="og:image" content="logo/LOGO – Primární.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><img src="logo/LOGO – Negativní-nav.svg" alt="VERK LAB" class="nav__logo-img"></a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav__links" id="navLinks">
+        <a href="#projekty" class="nav__link">Projekty</a>
+        <a href="#o-mne" class="nav__link">O mně</a>
+        <a href="#kontakt" class="nav__cta">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__accent-line"></div>
+    <div class="hero__dot-grid" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__subtitle">Product Designer &nbsp;·&nbsp; UX &nbsp;·&nbsp; Prototyping</p>
+      <h1 class="hero__title">
+        <span class="hero__title--white">Od požadavků</span>
+        <span class="hero__title--amber">k funkčnímu prototypu.</span>
+      </h1>
+      <p class="hero__description">
+        Pomáhám firmám a zakladatelům strukturovat digitální produkty ještě
+        před zahájením vývoje – od analýzy základního nápadu až po klikatelný prototyp
+        připravený pro development nebo investory.
+      </p>
+      <div class="hero__buttons">
+        <a href="#projekty" class="btn btn--primary">Více o projektech</a>
+        <a href="#kontakt" class="btn btn--outline">Kontaktujte mě</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <span class="hero__stat-number">6+</span>
+          <span class="hero__stat-label">let zkušeností</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">20+</span>
+          <span class="hero__stat-label">dokončených projektů</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number">100%</span>
+          <span class="hero__stat-label">prototyp včas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section class="projekty" id="projekty">
+    <div class="projekty__inner">
+      <p class="section-label">CASE STUDIES</p>
+      <h2 class="section-title">Vybrané projekty</h2>
+      <p class="projekty__subtitle">Každý projekt zahrnuje ukázku části produktové dokumentace a funkční prototyp.</p>
+
+      <!-- Featured project -->
+      <div class="projekt-card projekt-card--featured">
+        <div class="projekt-card__accent"></div>
+        <p class="projekt-card__tag">Family care · 2024</p>
+        <h3 class="projekt-card__title projekt-card__title--large">Rodiče v péči</h3>
+        <p class="projekt-card__desc">Koordinační platforma pro dospělé děti pečující o stárnoucí rodiče – od strategické analýzy přes PRD až po funkční prototyp připravený k vývoji.</p>
+        <div class="projekt-card__links">
+          <a href="case-study.html" class="projekt-card__link projekt-card__link--primary">→ Více o projektu</a>
+        </div>
+      </div>
+
+      <!-- Two-column projects -->
+      <div class="projekty__grid">
+        <div class="projekt-card">
+          <div class="projekt-card__accent"></div>
+          <p class="projekt-card__tag">SaaS · 2024</p>
+          <h3 class="projekt-card__title">Dashboard pro správu projektů</h3>
+          <p class="projekt-card__desc">B2B nástroj pro týmovou spolupráci. Definice rolí, akceptační kritéria, interaktivní prototyp.</p>
+          <div class="projekt-card__links">
+            <a href="case-study2.html" class="projekt-card__link projekt-card__link--primary">→ Více o projektu</a>
+          </div>
+        </div>
+        <div class="projekt-card">
+          <div class="projekt-card__accent"></div>
+          <p class="projekt-card__tag">E-commerce · 2023</p>
+          <h3 class="projekt-card__title">Redesign checkout procesu</h3>
+          <p class="projekt-card__desc">Snížení drop-off rate v košíku. A/B koncepty, PRD s prioritizací a klikatelný prototyp.</p>
+          <div class="projekt-card__links">
+            <a href="#" class="projekt-card__link projekt-card__link--primary">→ Více o projektu</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="projekty__show-all">Zobrazit všechny projekty →</a>
+    </div>
+  </section>
+
+  <!-- PRODUCT BLUEPRINT -->
+  <section class="blueprint" id="blueprint">
+    <div class="blueprint__accent-line"></div>
+    <div class="blueprint__inner">
+      <p class="section-label">PRODUCT BLUEPRINT 0→1</p>
+      <h2 class="section-title section-title--white">Výstupy podle potřeb vašeho projektu</h2>
+      <p class="blueprint__subtitle">Ucelený podklad připravený pro development nebo investiční prezentaci.</p>
+      <div class="blueprint__cards">
+        <div class="blueprint__card">
+          <span class="blueprint__card-icon"><i class="ph-duotone ph-magnifying-glass"></i></span>
+          <h3 class="blueprint__card-title">Analýza zadání</h3>
+          <p class="blueprint__card-desc">Kritické zhodnocení nápadu a iterativní zpřesnění zadání ve spolupráci s klientem</p>
+          <div class="blueprint__card-bar"></div>
+        </div>
+        <div class="blueprint__card">
+          <span class="blueprint__card-icon"><i class="ph-duotone ph-file-text"></i></span>
+          <h3 class="blueprint__card-title">Product Requirement Document</h3>
+          <p class="blueprint__card-desc">Strukturovaný dokument požadavků připravený pro vývojový tým</p>
+          <div class="blueprint__card-bar"></div>
+        </div>
+        <div class="blueprint__card">
+          <span class="blueprint__card-icon"><i class="ph-duotone ph-gear-six"></i></span>
+          <h3 class="blueprint__card-title">Core funkcionality</h3>
+          <p class="blueprint__card-desc">Prioritizovaný seznam klíčových funkcí s logikou a akceptačními kritérii</p>
+          <div class="blueprint__card-bar"></div>
+        </div>
+        <div class="blueprint__card">
+          <span class="blueprint__card-icon"><i class="ph-duotone ph-tree-structure"></i></span>
+          <h3 class="blueprint__card-title">Systémový blueprint</h3>
+          <p class="blueprint__card-desc">Architektura produktu – jak jsou funkcionality propojeny a na čem stojí</p>
+          <div class="blueprint__card-bar"></div>
+        </div>
+        <div class="blueprint__card">
+          <span class="blueprint__card-icon"><i class="ph-duotone ph-rocket-launch"></i></span>
+          <h3 class="blueprint__card-title">Funkční prototyp</h3>
+          <p class="blueprint__card-desc">Skutečně funkční verze produktu nasazená online, prezentující domluvené funkcionality připravené k předání nebo investiční prezentaci</p>
+          <div class="blueprint__card-bar"></div>
+        </div>
+      </div>
+      <p class="blueprint__footer-text">Váš nápad dostane tvar ještě před prvním řádkem kódu.</p>
+    </div>
+  </section>
+
+  <!-- O MNĚ -->
+  <section class="about" id="o-mne">
+    <div class="about__accent-line"></div>
+    <div class="about__inner">
+      <div class="about__content">
+        <p class="section-label">O MNĚ</p>
+        <h2 class="section-title">Věra Klabanová</h2>
+        <div class="about__text">
+          <p>
+
+VERK LAB řídím já - Věra Klabanová - a podle potřeby případně zapojuji další specialisty. VERK LAB tak funguje jako flexibilní pracovní rámec, ne jako pevně daný tým.</p>
+<p>Pracuji na pomezí produktového designu, UX a systémového návrhu. Pomáhám projektům přejít od nápadu k řešení, které je srozumitelné pro uživatele a zároveň udržitelné z pohledu vývoje.</p>
+<p>Výstupem není jen „hezký design" – je to kompletní podklad pro vývoj: produktová dokumentace + funkční prototyp, který si klient může projít ještě před prvním řádkem kódu.</p>
+        </div>
+        <div class="about__skills">
+          <span class="skill-tag">UX Research</span>
+          <span class="skill-tag">Product Requirement Document</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Prototyping</span>
+          <span class="skill-tag">Acceptance Criteria</span>
+          <span class="skill-tag">User Testing</span>
+        </div>
+
+        <p class="about__dont-label">CO NEDĚLÁM</p>
+        <hr class="about__divider">
+        <div class="about__dont-list">
+   
+          <span class="dont-tag"><span class="dont-tag__x">✕</span> Řízení vývojového týmu</span>
+          <span class="dont-tag"><span class="dont-tag__x">✕</span> Operativní backlog management</span>
+          <span class="dont-tag"><span class="dont-tag__x">✕</span> Marketingové kampaně</span>
+        </div>
+        <p class="about__note">Zaměřuji se čistě na fázi 0→1 – díky tomu lze jít v přípravné fázi opravdu do hloubky.</p>
+      </div>
+      <div class="about__photo">
+        <div class="about__photo-wrapper">
+          <img src="VK.png" alt="Věra Klabanová" class="about__photo-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="kontakt__inner">
+      <p class="section-label section-label--center">KONTAKT</p>
+      <h2 class="section-title section-title--white section-title--center">Pojďme proměnit váš nápad v zadání připravené k vývoji.</h2>
+      <p class="kontakt__subtitle">Napište mi o svém projektu – první krok je nezávazný rozhovor.</p>
+      <form class="kontakt__form" action="#" method="post">
+        <input type="text" class="kontakt__field" name="name" placeholder="Jméno" aria-label="Jméno">
+        <input type="text" class="kontakt__field" name="contact" placeholder="E-mail nebo telefon" required aria-label="E-mail nebo telefon">
+        <textarea class="kontakt__field kontakt__textarea" name="message" placeholder="Zpráva" rows="4" aria-label="Zpráva"></textarea>
+        <div class="kontakt__file-wrapper">
+          <label class="kontakt__file-label" for="fileUpload">
+            <i class="ph-duotone ph-paperclip"></i> Přiložit soubor (nepovinné) – brief, prezentace nebo zadání (.pdf, .jpg, .png)
+          </label>
+          <input type="file" class="kontakt__file-input" id="fileUpload" name="attachment" accept=".pdf,.jpg,.jpeg,.png" aria-label="Přiložit soubor">
+          <span class="kontakt__file-name" id="fileName"></span>
+          <span class="kontakt__file-error" id="fileError"></span>
+        </div>
+        <button type="submit" class="kontakt__submit">Odeslat</button>
+        <p class="kontakt__gdpr">Odesláním formuláře souhlasíte se zpracováním osobních údajů za účelem odpovědi na váš dotaz. Data nebudou předána třetím stranám.</p>
+      </form>
+      <div class="kontakt__success" id="formSuccess">
+        <span class="kontakt__success-icon"><i class="ph-duotone ph-check-circle"></i></span>
+        <p class="kontakt__success-text">Děkuji za zprávu! Ozvu se vám co nejdříve.</p>
+      </div>
+      <p class="kontakt__links"><a href="mailto:ve.ra@seznam.cz">ve.ra@seznam.cz</a> &nbsp;·&nbsp; 720 756 128 &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/vera-klabanova/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <img src="logo/WORDMARK – Tmavý.svg" alt="VERK LAB" class="footer__logo">
+      <div class="footer__text">
+        <p class="footer__copy">© 2025 VERK LAB · Věra Klabanova, IČO: 14141655. Všechna práva vyhrazena.</p>
+        <p class="footer__legal">Prezentované projekty jsou chráněny autorským zákonem.</p>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- COOKIE CONSENT -->
+  <div class="cookie-bar" id="cookieBar">
+    <p class="cookie-bar__text">Tento web používá cookies pro analýzu návštěvnosti (Google Analytics). Souhlasíte s jejich použitím?</p>
+    <div class="cookie-bar__buttons">
+      <button class="cookie-bar__btn cookie-bar__btn--accept" id="cookieAccept">Přijmout</button>
+      <button class="cookie-bar__btn cookie-bar__btn--reject" id="cookieReject">Odmítnout</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
