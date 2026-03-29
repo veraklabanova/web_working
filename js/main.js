@@ -1,3 +1,14 @@
+// =============================================================================
+// DEPLOY CHECKLIST – před nahráním na Wedos zkontrolovat:
+//
+// 1. SSL (Let's Encrypt) – aktivovat v administraci Wedosu pro verklab.cz
+// 2. _next URL – ve všech 5 formulářích změnit na https://verklab.cz/dekuji.html
+//    (index.html, case-study.html, case-study2.html, case-study3.html, case-study4.html)
+// 3. Formsubmit.co e-mail – až pojede info@verklab.cz (MX záznamy na Wedosu),
+//    změnit action ve formulářích z ve.ra@seznam.cz na info@verklab.cz
+// 4. Google Analytics – nahradit GA_ID 'G-XXXXXXXXXX' reálným Measurement ID
+// =============================================================================
+
 // Mobile menu toggle
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -37,8 +48,8 @@ document.querySelectorAll('.hero__dot-grid, .cs-header__dot-grid').forEach(conta
     const opacity = isBright
       ? 0.5 + Math.random() * 0.25
       : 0.12 + Math.random() * 0.28;
-    // Longer stagger 0–5s for a slower wave
-    const delay = Math.random() * 5;
+    // All dots launch simultaneously
+    const delay = 0;
     // Each dot fades in at its own pace 2.5–5s
     const duration = 2.5 + Math.random() * 2.5;
 
@@ -49,6 +60,9 @@ document.querySelectorAll('.hero__dot-grid, .cs-header__dot-grid').forEach(conta
     dot.style.setProperty('--dot-opacity', opacity);
     dot.style.setProperty('--dot-duration', duration + 's');
     dot.style.animationDelay = delay + 's';
+    // Warp effect: translate offset so dot starts at canvas centre and flies outward
+    dot.style.setProperty('--tx', (w / 2 - x) + 'px');
+    dot.style.setProperty('--ty', (h / 2 - y) + 'px');
 
     container.appendChild(dot);
   }
@@ -63,16 +77,18 @@ document.querySelectorAll('.hero__dot-grid, .cs-header__dot-grid').forEach(conta
     dot.classList.add('dot--glow');
     const baseDelay = parseFloat(dot.style.animationDelay) || 0;
     const baseDuration = parseFloat(dot.style.getPropertyValue('--dot-duration')) || 3.5;
-    // Each dot glows at its own random time and pace
-    const glowDelay = baseDelay + baseDuration + 1 + Math.random() * 5;
+    // Smaller glows start during the flight, always before the flight ends
+    const glowDelay = baseDelay + Math.random() * baseDuration * 0.4;
     const glowDuration = 3 + Math.random() * 5;
     dot.style.setProperty('--glow-delay', glowDelay + 's');
     dot.style.setProperty('--glow-duration', glowDuration + 's');
 
     if (idx === 0) {
-      // Hero glow – the biggest one, dot itself grows ~2%
+      // Hero glow – starts immediately and grows throughout the entire flight
       dot.style.setProperty('--glow-scale', '8');
       dot.style.setProperty('--glow-end-opacity', '0.5');
+      dot.style.setProperty('--glow-delay', '0s');
+      dot.style.setProperty('--glow-duration', baseDuration + 's');
       dot.classList.add('dot--hero');
     } else {
       // Smaller random glow
@@ -84,27 +100,29 @@ document.querySelectorAll('.hero__dot-grid, .cs-header__dot-grid').forEach(conta
   });
 });
 
-// Form submit – show confirmation
-document.querySelectorAll('.kontakt__form').forEach(form => {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+// Blueprint cards – stagger fade-in při scrollu do viewportu
+const blueprintCards = document.querySelectorAll('.blueprint__card');
+if (blueprintCards.length > 0 && 'IntersectionObserver' in window) {
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const index = Array.from(blueprintCards).indexOf(card);
+        setTimeout(() => card.classList.add('is-visible'), index * 100);
+        cardObserver.unobserve(card);
+      }
+    });
+  }, { threshold: 0.1 });
 
-    // TODO: replace with actual form submission (e.g. fetch to backend/Formspree)
-    // For now, simulate success after a brief delay
-    const success = form.parentElement.querySelector('.kontakt__success');
-    if (success) {
-      form.style.display = 'none';
-      success.classList.add('is-visible');
-    }
-  });
-});
+  blueprintCards.forEach(card => cardObserver.observe(card));
+}
 
 // File upload validation
 document.querySelectorAll('.kontakt__file-input').forEach(input => {
   const wrapper = input.closest('.kontakt__file-wrapper');
   const nameEl = wrapper.querySelector('.kontakt__file-name');
   const errorEl = wrapper.querySelector('.kontakt__file-error');
-  const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
+  const MAX_SIZE = 5 * 1024 * 1024; // 5 MB (Formsubmit.co limit)
   const ALLOWED = ['application/pdf', 'image/jpeg', 'image/png'];
 
   input.addEventListener('change', () => {
@@ -115,13 +133,13 @@ document.querySelectorAll('.kontakt__file-input').forEach(input => {
     if (!file) return;
 
     if (!ALLOWED.includes(file.type)) {
-      errorEl.textContent = 'Povolené formáty jsou PDF, JPG a PNG. Maximální velikost souboru je 10 MB.';
+      errorEl.textContent = 'Povolené formáty jsou PDF, JPG a PNG. Maximální velikost souboru je 5 MB.';
       input.value = '';
       return;
     }
 
     if (file.size > MAX_SIZE) {
-      errorEl.textContent = 'Povolené formáty jsou PDF, JPG a PNG. Maximální velikost souboru je 10 MB.';
+      errorEl.textContent = 'Povolené formáty jsou PDF, JPG a PNG. Maximální velikost souboru je 5 MB.';
       input.value = '';
       return;
     }

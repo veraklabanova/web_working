@@ -21,7 +21,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="logo/LOGO – Negativní-nav.svg" alt="VERK LAB" class="nav__logo-img"></a>
+      <a href="index.html" class="nav__logo"><img src="logo/LOGO_WEB.png" alt="VERK LAB" class="nav__logo-img"></a>
       <button class="nav__hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -46,10 +46,28 @@
         přes akceptační kritéria až po interaktivní prototyp připravený k vývoji.
       </p>
       <div class="cs-header__tags">
-        <span class="cs-tag">Product Requirement Document</span>
+        <span class="cs-tag">Product Architecture Baseline</span>
         <span class="cs-tag">UX Strategy</span>
         <span class="cs-tag">Prototyping</span>
         <span class="cs-tag">B2B SaaS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <section class="cs-tldr">
+    <div class="cs-tldr__inner">
+      <div class="cs-tldr__item">
+        <span class="cs-tldr__label">Doba dodání</span>
+        <span class="cs-tldr__value">Zástupný text</span>
+      </div>
+      <div class="cs-tldr__item">
+        <span class="cs-tldr__label">Hlavní výstup</span>
+        <span class="cs-tldr__value">Zástupný text</span>
+      </div>
+      <div class="cs-tldr__item">
+        <span class="cs-tldr__label">Byznysový dopad</span>
+        <span class="cs-tldr__value">Zástupný text</span>
       </div>
     </div>
   </section>
@@ -84,7 +102,7 @@
       <p class="section-label">MOJE ROLE</p>
       <p class="cs-role__text">
         Product design, fáze 0→1. Definice uživatelských rolí a oprávnění,
-        návrh informační architektury, PRD s akceptačními kritérii
+        návrh informační architektury, PAB s akceptačními kritérii
         a interaktivní prototyp připravený k předání vývojovému týmu.
       </p>
     </div>
@@ -112,10 +130,10 @@
       <p class="section-label">VÝSTUPY K PROZKOUMÁNÍ</p>
       <div class="cs-cta__buttons">
         <a href="https://project-pulse-peach.vercel.app" target="_blank" rel="noopener" class="btn btn--primary"><i class="ph-duotone ph-rocket-launch btn__icon"></i> Spustit funkční prototyp</a>
-        <a href="ProjectPulse/PRD_ProjectPulse_v01.pdf" target="_blank" rel="noopener" class="btn btn--outline-dark"><i class="ph-duotone ph-file-text btn__icon"></i> Product Requirement Document</a>
-        <a href="ProjectPulse/Discovery Dokument_ProjectPulse_v02.pdf" target="_blank" rel="noopener" class="btn btn--outline-dark"><i class="ph-duotone ph-palette btn__icon"></i> Discovery Document</a>
+        <a href="ProjectPulse/PRD_ProjectPulse_v01.pdf" target="_blank" rel="noopener" class="btn btn--outline-dark"><i class="ph-duotone ph-file-text btn__icon"></i> Product Architecture Baseline <span class="btn__badge">PDF · 449 KB</span></a>
+        <a href="ProjectPulse/Discovery Dokument_ProjectPulse_v02.pdf" target="_blank" rel="noopener" class="btn btn--outline-dark"><i class="ph-duotone ph-palette btn__icon"></i> Discovery Document <span class="btn__badge">PDF · 595 KB</span></a>
       </div>
-      <p class="cs-cta__note">Prototyp je nasazen na Vercelu · PRD a Discovery Document se otevírají ve formátu PDF</p>
+      <p class="cs-cta__note">Prototyp je nasazen na Vercelu · PAB a Discovery Document se otevírají ve formátu PDF</p>
     </div>
   </section>
 
@@ -162,9 +180,9 @@
           <span class="cs-nav-card__dir">← Předchozí projekt</span>
           <span class="cs-nav-card__title">Rodiče v péči</span>
         </a>
-        <a href="#" class="cs-nav-card cs-nav-card--right">
+        <a href="case-study3.html" class="cs-nav-card cs-nav-card--right">
           <span class="cs-nav-card__dir">Další projekt →</span>
-          <span class="cs-nav-card__title">Redesign checkout procesu</span>
+          <span class="cs-nav-card__title">Název projektu 3</span>
         </a>
       </div>
     </div>
@@ -174,12 +192,19 @@
   <section class="kontakt" id="kontakt">
     <div class="kontakt__inner">
       <p class="section-label section-label--center">KONTAKT</p>
-      <h2 class="section-title section-title--white section-title--center">Pojďme proměnit váš nápad v zadání připravené k vývoji.</h2>
-      <p class="kontakt__subtitle">Napište mi o svém projektu – první krok je vždy jen nezávazný rozhovor.</p>
-      <form class="kontakt__form" action="#" method="post">
+      <h2 class="section-title section-title--white section-title--center">Pojďme proměnit Váš nápad v zadání připravené k vývoji.</h2>
+      <p class="kontakt__subtitle">Napište mi o svém projektu – první krok je nezávazný rozhovor.</p>
+      <form class="kontakt__form" action="https://formsubmit.co/ve.ra@seznam.cz" method="POST" enctype="multipart/form-data">
+        <!-- Formsubmit.co config -->
+        <!-- TODO before deploy: změnit na https://verklab.cz/dekuji.html (až bude SSL na Wedosu) -->
+        <input type="hidden" name="_next" value="http://localhost:8080/dekuji.html">
+        <input type="hidden" name="_subject" value="Nová zpráva z webu VERK LAB">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <input type="text" class="kontakt__field" name="name" placeholder="Jméno" aria-label="Jméno">
-        <input type="text" class="kontakt__field" name="contact" placeholder="E-mail nebo telefon" required aria-label="E-mail nebo telefon">
-        <textarea class="kontakt__field kontakt__textarea" name="message" placeholder="Zpráva" rows="4" aria-label="Zpráva"></textarea>
+        <input type="email" class="kontakt__field" name="email" placeholder="E-mail" required aria-label="E-mail">
+        <input type="tel" class="kontakt__field" name="phone" placeholder="Telefon (volitelné)" aria-label="Telefon">
+        <textarea class="kontakt__field kontakt__textarea" name="message" placeholder="Co stavíte nebo vylepšujete?&#10;Kde to aktuálně drhne (nápad / design / vývoj)?&#10;Kdy by to mělo být hotové?" rows="5" aria-label="Zpráva"></textarea>
         <div class="kontakt__file-wrapper">
           <label class="kontakt__file-label" for="fileUploadCS2">
             <i class="ph-duotone ph-paperclip"></i> Přiložit soubor (nepovinné) – brief, prezentace nebo zadání (.pdf, .jpg, .png)
@@ -188,14 +213,15 @@
           <span class="kontakt__file-name" id="fileNameCS2"></span>
           <span class="kontakt__file-error" id="fileErrorCS2"></span>
         </div>
-        <button type="submit" class="kontakt__submit">Odeslat</button>
+        <button type="submit" class="kontakt__submit">Nezávazně probrat projekt</button>
+        <p class="kontakt__trust">Vaše data jsou v bezpečí. Odpovím vám do 24 hodin.</p>
         <p class="kontakt__gdpr">Odesláním formuláře souhlasíte se zpracováním osobních údajů za účelem odpovědi na váš dotaz. Data nebudou předána třetím stranám.</p>
       </form>
       <div class="kontakt__success" id="formSuccess">
         <span class="kontakt__success-icon"><i class="ph-duotone ph-check-circle"></i></span>
         <p class="kontakt__success-text">Děkuji za zprávu! Ozvu se vám co nejdříve.</p>
       </div>
-      <p class="kontakt__links"><a href="mailto:ve.ra@seznam.cz">ve.ra@seznam.cz</a> &nbsp;·&nbsp; 720 756 128 &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/vera-klabanova/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p class="kontakt__links"><a href="mailto:info@verklab.cz">info@verklab.cz</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/vera-klabanova/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </section>
 
@@ -204,8 +230,8 @@
     <div class="footer__inner">
       <img src="logo/WORDMARK – Tmavý.svg" alt="VERK LAB" class="footer__logo">
       <div class="footer__text">
-        <p class="footer__copy">© 2025 VERK LAB · Věra Klabanova, IČO: 14141655. Všechna práva vyhrazena.</p>
-        <p class="footer__legal">Prezentované projekty jsou chráněny autorským zákonem.</p>
+        <p class="footer__copy">© 2021–2026 VERK LAB · Věra Klabanová, IČO: 14141655. Všechna práva vyhrazena.</p>
+        <p class="footer__legal">Prezentováno se souhlasem klientů. Veškerá citlivá data a interní dokumentace jsou z důvodu mlčenlivosti (NDA) plně anonymizovány. Obsah podléhá autorskému právu.</p>
       </div>
     </div>
   </footer>

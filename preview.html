@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Preview – VERK LAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d1826;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 48px;
+    }
+
+    /* Header */
+    .preview-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 36px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .preview-logo {
+      height: 36px;
+      width: auto;
+      opacity: 0.9;
+    }
+
+    .preview-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Page selector */
+    .preview-select-wrap {
+      width: 100%;
+      position: relative;
+    }
+
+    .preview-select {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(244,182,57,0.3);
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 16px;
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .preview-select:focus {
+      border-color: rgba(244,182,57,0.7);
+    }
+
+    .preview-select option {
+      background: #182952;
+      color: #fff;
+    }
+
+    .preview-select-arrow {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: rgba(244,182,57,0.8);
+      font-size: 12px;
+    }
+
+    /* Phone frame */
+    .phone-wrap {
+      position: relative;
+    }
+
+    .phone-frame {
+      width: 375px;
+      height: 812px;
+      background: #0a0f1a;
+      border-radius: 48px;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow:
+        0 0 0 6px #1a2235,
+        0 0 0 8px rgba(255,255,255,0.06),
+        0 40px 80px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Notch */
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 126px;
+      height: 30px;
+      background: #0a0f1a;
+      border-radius: 0 0 20px 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .phone-notch__camera {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #1e2d45;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .phone-notch__speaker {
+      width: 48px;
+      height: 5px;
+      border-radius: 3px;
+      background: #1e2d45;
+    }
+
+    /* Side buttons */
+    .phone-btn-vol {
+      position: absolute;
+      left: -9px;
+      top: 130px;
+      width: 5px;
+      height: 32px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px 0 0 2px;
+    }
+    .phone-btn-vol + .phone-btn-vol {
+      top: 176px;
+      height: 56px;
+    }
+
+    .phone-btn-power {
+      position: absolute;
+      right: -9px;
+      top: 160px;
+      width: 5px;
+      height: 68px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* Bottom bar */
+    .phone-home-bar {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 2px;
+      z-index: 10;
+    }
+
+    /* iframe */
+    .phone-iframe {
+      width: 375px;
+      height: 812px;
+      border: none;
+      border-radius: 46px;
+      display: block;
+    }
+
+    /* Footer */
+    .preview-footer {
+      margin-top: 28px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .preview-footer a {
+      color: rgba(244,182,57,0.6);
+      text-decoration: none;
+    }
+
+    .preview-footer a:hover {
+      color: rgba(244,182,57,0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-header">
+    <img src="logo/WORDMARK – Světlý.svg" alt="VERK LAB" class="preview-logo">
+    <p class="preview-title">Mobile Preview</p>
+
+    <div class="preview-select-wrap">
+      <select class="preview-select" id="pageSelect">
+        <option value="index.html">🏠 Hlavní stránka</option>
+        <option value="case-study.html">📁 Case Study 1 – Rodiče v péči</option>
+        <option value="case-study2.html">📁 Case Study 2 – Dashboard pro správu projektů</option>
+        <option value="case-study3.html">📁 Case Study 3 – Redesign checkout procesu</option>
+        <option value="case-study4.html">📁 Case Study 4 – AI asistent</option>
+        <option value="dekuji.html">✅ Děkujeme</option>
+      </select>
+      <span class="preview-select-arrow">▼</span>
+    </div>
+  </div>
+
+  <div class="phone-wrap">
+    <div class="phone-frame">
+      <div class="phone-notch">
+        <div class="phone-notch__camera"></div>
+        <div class="phone-notch__speaker"></div>
+        <div class="phone-notch__camera"></div>
+      </div>
+      <div class="phone-btn-vol"></div>
+      <div class="phone-btn-vol"></div>
+      <div class="phone-btn-power"></div>
+      <iframe
+        id="previewFrame"
+        class="phone-iframe"
+        src="index.html"
+        title="Mobile preview"
+      ></iframe>
+      <div class="phone-home-bar"></div>
+    </div>
+  </div>
+
+  <p class="preview-footer">
+    Pouze pro testovací účely ·
+    <a href="index.html" target="_blank">Otevřít web →</a>
+  </p>
+
+  <script>
+    document.getElementById('pageSelect').addEventListener('change', function() {
+      document.getElementById('previewFrame').src = this.value;
+    });
+  </script>
+
+</body>
+</html>
